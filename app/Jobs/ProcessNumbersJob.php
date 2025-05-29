@@ -35,14 +35,24 @@ class ProcessNumbersJob implements ShouldQueue
 
     private function isPrime($number): bool
     {
-        if ($number <= 1) return false;
+        if ($number <= 1) {
+            return false;
+        }
 
-        for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number === 2) {
+            return true;
+        }
+
+        if ($number > 2 && $number % 2 === 0) {
+            return false;
+        }
+
+        for ($i = 3; $i <= sqrt($number); $i++) {
             if ($number % $i === 0) {
                 return false;
             }
         }
-        
+
         return true;
     }
 }

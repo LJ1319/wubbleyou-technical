@@ -47,7 +47,7 @@ class ProcessNumbersJob implements ShouldQueue
             return false;
         }
 
-        for ($i = 3; $i <= sqrt($number); $i++) {
+        for ($i = 3; $i <= sqrt($number); $i += 2) {
             if ($number % $i === 0) {
                 return false;
             }
